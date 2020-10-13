@@ -6,6 +6,11 @@ variables:
   dotnetSdkVersion: '3.1.300'
 
 steps:
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet 5.6.0'
+  inputs:
+    versionSpec: 5.6.0  
+    
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
@@ -44,6 +49,6 @@ steps:
     nuGetFeedType: 'internal'
     vstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models'
     publishVstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models'
-    allowPackageConflicts: true  
+    allowPackageConflicts: true      
   condition: succeeded()
 
