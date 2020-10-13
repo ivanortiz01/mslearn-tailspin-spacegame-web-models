@@ -38,7 +38,12 @@ steps:
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
-    command: push
+    command: 'push'
+    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    vstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models'
     publishVstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models'
-    allowPackageConflicts: true
+    allowPackageConflicts: true  
   condition: succeeded()
+
