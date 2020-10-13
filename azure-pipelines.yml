@@ -39,6 +39,6 @@ steps:
   displayName: 'Publish NuGet package'
   inputs:
     command: push
-    publishVstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models_2'
+    publishVstsFeed: 'Azure Devops Learning/Tailspin.SpaceGame.Web.Models'
     allowPackageConflicts: true
   condition: succeeded()
